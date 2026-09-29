@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: ayam-backend
+    ports:
+      - "8000:8000"
+    environment:
+      - PORT=8000
+      - APP_MODE=demo
+      - SUPABASE_URL=${SUPABASE_URL:-}
+      - SUPABASE_ANON_KEY=${SUPABASE_ANON_KEY:-}
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - OPENAQ_API_KEY=${OPENAQ_API_KEY:-}
+      - MAPTILER_API_KEY=${MAPTILER_API_KEY:-}
+    restart: unless-stopped
+
+  frontend:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile
+      args:
+        - NEXT_PUBLIC_API_URL=http://localhost:8000
+        - NEXT_PUBLIC_MAPTILER_KEY=${MAPTILER_API_KEY:-}
+        - VITE_MAPTILER_KEY=${MAPTILER_API_KEY:-}
+        - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL:-}
+    container_name: ayam-frontend
+    ports:
+      - "3000:3000"
+    environment:
+      - NEXT_PUBLIC_API_URL=http://localhost:8000
+      - NEXT_PUBLIC_SUPABASE_URL=${SUPABASE_URL:-https://bgayinhzfxekdwquakll.supabase.co}
+      - NEXT_PUBLIC_SUPABASE_ANON_KEY=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6ImJnYXlpbmh6Znhla2R3cXVha2xsIiwicm9sZSI6ImFub24iLCJpYXQiOjE3OTA1MTU2MDEsImV4cCI6MjEwNjA5MTYwMX0.b8QJmLlBFfBFWrWDrP-cSCGThxPALjAWso6rE6IYGc4
+      - NEXT_PUBLIC_MAPTILER_KEY=QGV0RYXw2K52FE11qyKZ
+      - VITE_MAPTILER_KEY=QGV0RYXw2K52FE11qyKZ
+    depends_on:
+      - backend
+    restart: unless-stopped

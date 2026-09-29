@@ -1,0 +1,442 @@
+{
+  "DEMO-HADAPSAR": {
+    "station_id": "DEMO-HADAPSAR",
+    "n_samples": 168,
+    "analysis_type": "SHAP TreeExplainer",
+    "data_status": "MODELED",
+    "label": "Model-estimated driver contribution",
+    "assumption_text": "These contributions represent model feature influence under the available data and assumptions. They are not direct physical source-apportionment measurements. They should not be interpreted as precise emission percentages.",
+    "driver_groups": {
+      "Traffic & Transport": {
+        "share_pct": 28.07,
+        "label": "[MODELED]",
+        "description": "Traffic activity proxy, short-term PM2.5 lags, road density"
+      },
+      "Industrial": {
+        "share_pct": 3.55,
+        "label": "[MODELED]",
+        "description": "Industrial activity proxy, medium-term PM2.5 lags, industrial proximity"
+      },
+      "Dust & Construction": {
+        "share_pct": 3.39,
+        "label": "[MODELED]",
+        "description": "Dust activity proxy, rolling PM2.5 mean, construction season"
+      },
+      "Meteorology": {
+        "share_pct": 42.41,
+        "label": "[MODELED]",
+        "description": "Wind, humidity, temperature, precipitation, boundary-layer height"
+      },
+      "Temporal / Other": {
+        "share_pct": 22.59,
+        "label": "[MODELED]",
+        "description": "Hour of day, day of week, seasonality, station location"
+      }
+    },
+    "top_features": [
+      {
+        "feature": "boundary_layer_height",
+        "mean_abs_shap": 30.2171,
+        "group": "weather"
+      },
+      {
+        "feature": "pm25_lag_1",
+        "mean_abs_shap": 26.453,
+        "group": "traffic"
+      },
+      {
+        "feature": "pm25_rolling_mean_24",
+        "mean_abs_shap": 14.1461,
+        "group": "weather"
+      },
+      {
+        "feature": "hour_cos",
+        "mean_abs_shap": 8.3053,
+        "group": "temporal"
+      },
+      {
+        "feature": "traffic_activity_proxy",
+        "mean_abs_shap": 7.3864,
+        "group": "traffic"
+      },
+      {
+        "feature": "wind_speed",
+        "mean_abs_shap": 6.246,
+        "group": "weather"
+      },
+      {
+        "feature": "is_monsoon",
+        "mean_abs_shap": 5.1683,
+        "group": "temporal"
+      },
+      {
+        "feature": "hour_sin",
+        "mean_abs_shap": 4.8171,
+        "group": "temporal"
+      },
+      {
+        "feature": "month",
+        "mean_abs_shap": 3.8376,
+        "group": "temporal"
+      },
+      {
+        "feature": "month_cos",
+        "mean_abs_shap": 3.1588,
+        "group": "temporal"
+      }
+    ],
+    "computed_at": "2026-09-27T00:39:51.180148"
+  },
+  "DEMO-KATRAJ": {
+    "station_id": "DEMO-KATRAJ",
+    "n_samples": 168,
+    "analysis_type": "SHAP TreeExplainer",
+    "data_status": "MODELED",
+    "label": "Model-estimated driver contribution",
+    "assumption_text": "These contributions represent model feature influence under the available data and assumptions. They are not direct physical source-apportionment measurements. They should not be interpreted as precise emission percentages.",
+    "driver_groups": {
+      "Traffic & Transport": {
+        "share_pct": 27.11,
+        "label": "[MODELED]",
+        "description": "Traffic activity proxy, short-term PM2.5 lags, road density"
+      },
+      "Industrial": {
+        "share_pct": 3.28,
+        "label": "[MODELED]",
+        "description": "Industrial activity proxy, medium-term PM2.5 lags, industrial proximity"
+      },
+      "Dust & Construction": {
+        "share_pct": 3.14,
+        "label": "[MODELED]",
+        "description": "Dust activity proxy, rolling PM2.5 mean, construction season"
+      },
+      "Meteorology": {
+        "share_pct": 41.98,
+        "label": "[MODELED]",
+        "description": "Wind, humidity, temperature, precipitation, boundary-layer height"
+      },
+      "Temporal / Other": {
+        "share_pct": 24.49,
+        "label": "[MODELED]",
+        "description": "Hour of day, day of week, seasonality, station location"
+      }
+    },
+    "top_features": [
+      {
+        "feature": "boundary_layer_height",
+        "mean_abs_shap": 32.6683,
+        "group": "weather"
+      },
+      {
+        "feature": "pm25_lag_1",
+        "mean_abs_shap": 28.9708,
+        "group": "traffic"
+      },
+      {
+        "feature": "pm25_rolling_mean_24",
+        "mean_abs_shap": 18.1537,
+        "group": "weather"
+      },
+      {
+        "feature": "lat",
+        "mean_abs_shap": 8.7352,
+        "group": "spatial"
+      },
+      {
+        "feature": "hour_cos",
+        "mean_abs_shap": 8.4819,
+        "group": "temporal"
+      },
+      {
+        "feature": "traffic_activity_proxy",
+        "mean_abs_shap": 7.8811,
+        "group": "traffic"
+      },
+      {
+        "feature": "wind_speed",
+        "mean_abs_shap": 6.339,
+        "group": "weather"
+      },
+      {
+        "feature": "is_monsoon",
+        "mean_abs_shap": 5.1148,
+        "group": "temporal"
+      },
+      {
+        "feature": "hour_sin",
+        "mean_abs_shap": 5.0669,
+        "group": "temporal"
+      },
+      {
+        "feature": "month",
+        "mean_abs_shap": 3.7609,
+        "group": "temporal"
+      }
+    ],
+    "computed_at": "2026-09-27T00:39:52.566983"
+  },
+  "DEMO-LOHEGAON": {
+    "station_id": "DEMO-LOHEGAON",
+    "n_samples": 168,
+    "analysis_type": "SHAP TreeExplainer",
+    "data_status": "MODELED",
+    "label": "Model-estimated driver contribution",
+    "assumption_text": "These contributions represent model feature influence under the available data and assumptions. They are not direct physical source-apportionment measurements. They should not be interpreted as precise emission percentages.",
+    "driver_groups": {
+      "Traffic & Transport": {
+        "share_pct": 29.99,
+        "label": "[MODELED]",
+        "description": "Traffic activity proxy, short-term PM2.5 lags, road density"
+      },
+      "Industrial": {
+        "share_pct": 3.76,
+        "label": "[MODELED]",
+        "description": "Industrial activity proxy, medium-term PM2.5 lags, industrial proximity"
+      },
+      "Dust & Construction": {
+        "share_pct": 3.16,
+        "label": "[MODELED]",
+        "description": "Dust activity proxy, rolling PM2.5 mean, construction season"
+      },
+      "Meteorology": {
+        "share_pct": 36.47,
+        "label": "[MODELED]",
+        "description": "Wind, humidity, temperature, precipitation, boundary-layer height"
+      },
+      "Temporal / Other": {
+        "share_pct": 26.62,
+        "label": "[MODELED]",
+        "description": "Hour of day, day of week, seasonality, station location"
+      }
+    },
+    "top_features": [
+      {
+        "feature": "boundary_layer_height",
+        "mean_abs_shap": 25.8282,
+        "group": "weather"
+      },
+      {
+        "feature": "pm25_lag_1",
+        "mean_abs_shap": 20.165,
+        "group": "traffic"
+      },
+      {
+        "feature": "hour_cos",
+        "mean_abs_shap": 8.3441,
+        "group": "temporal"
+      },
+      {
+        "feature": "traffic_activity_proxy",
+        "mean_abs_shap": 6.4573,
+        "group": "traffic"
+      },
+      {
+        "feature": "road_density_proxy",
+        "mean_abs_shap": 6.2189,
+        "group": "traffic"
+      },
+      {
+        "feature": "wind_speed",
+        "mean_abs_shap": 5.5881,
+        "group": "weather"
+      },
+      {
+        "feature": "is_monsoon",
+        "mean_abs_shap": 4.9647,
+        "group": "temporal"
+      },
+      {
+        "feature": "lat",
+        "mean_abs_shap": 4.5137,
+        "group": "spatial"
+      },
+      {
+        "feature": "month",
+        "mean_abs_shap": 3.5039,
+        "group": "temporal"
+      },
+      {
+        "feature": "pm25_rolling_mean_24",
+        "mean_abs_shap": 3.4241,
+        "group": "weather"
+      }
+    ],
+    "computed_at": "2026-09-27T00:39:54.181160"
+  },
+  "DEMO-PASHAN": {
+    "station_id": "DEMO-PASHAN",
+    "n_samples": 168,
+    "analysis_type": "SHAP TreeExplainer",
+    "data_status": "MODELED",
+    "label": "Model-estimated driver contribution",
+    "assumption_text": "These contributions represent model feature influence under the available data and assumptions. They are not direct physical source-apportionment measurements. They should not be interpreted as precise emission percentages.",
+    "driver_groups": {
+      "Traffic & Transport": {
+        "share_pct": 27.4,
+        "label": "[MODELED]",
+        "description": "Traffic activity proxy, short-term PM2.5 lags, road density"
+      },
+      "Industrial": {
+        "share_pct": 3.09,
+        "label": "[MODELED]",
+        "description": "Industrial activity proxy, medium-term PM2.5 lags, industrial proximity"
+      },
+      "Dust & Construction": {
+        "share_pct": 3.28,
+        "label": "[MODELED]",
+        "description": "Dust activity proxy, rolling PM2.5 mean, construction season"
+      },
+      "Meteorology": {
+        "share_pct": 39.46,
+        "label": "[MODELED]",
+        "description": "Wind, humidity, temperature, precipitation, boundary-layer height"
+      },
+      "Temporal / Other": {
+        "share_pct": 26.76,
+        "label": "[MODELED]",
+        "description": "Hour of day, day of week, seasonality, station location"
+      }
+    },
+    "top_features": [
+      {
+        "feature": "boundary_layer_height",
+        "mean_abs_shap": 27.2238,
+        "group": "weather"
+      },
+      {
+        "feature": "pm25_lag_1",
+        "mean_abs_shap": 22.2641,
+        "group": "traffic"
+      },
+      {
+        "feature": "hour_cos",
+        "mean_abs_shap": 8.3394,
+        "group": "temporal"
+      },
+      {
+        "feature": "traffic_activity_proxy",
+        "mean_abs_shap": 6.7698,
+        "group": "traffic"
+      },
+      {
+        "feature": "pm25_rolling_mean_24",
+        "mean_abs_shap": 6.6858,
+        "group": "weather"
+      },
+      {
+        "feature": "wind_speed",
+        "mean_abs_shap": 5.883,
+        "group": "weather"
+      },
+      {
+        "feature": "is_monsoon",
+        "mean_abs_shap": 5.1991,
+        "group": "temporal"
+      },
+      {
+        "feature": "lat",
+        "mean_abs_shap": 4.3641,
+        "group": "spatial"
+      },
+      {
+        "feature": "month",
+        "mean_abs_shap": 3.8251,
+        "group": "temporal"
+      },
+      {
+        "feature": "hour_sin",
+        "mean_abs_shap": 3.6716,
+        "group": "temporal"
+      }
+    ],
+    "computed_at": "2026-09-27T00:39:55.817493"
+  },
+  "DEMO-SHIVAJINAGAR": {
+    "station_id": "DEMO-SHIVAJINAGAR",
+    "n_samples": 168,
+    "analysis_type": "SHAP TreeExplainer",
+    "data_status": "MODELED",
+    "label": "Model-estimated driver contribution",
+    "assumption_text": "These contributions represent model feature influence under the available data and assumptions. They are not direct physical source-apportionment measurements. They should not be interpreted as precise emission percentages.",
+    "driver_groups": {
+      "Traffic & Transport": {
+        "share_pct": 28.38,
+        "label": "[MODELED]",
+        "description": "Traffic activity proxy, short-term PM2.5 lags, road density"
+      },
+      "Industrial": {
+        "share_pct": 3.11,
+        "label": "[MODELED]",
+        "description": "Industrial activity proxy, medium-term PM2.5 lags, industrial proximity"
+      },
+      "Dust & Construction": {
+        "share_pct": 3.33,
+        "label": "[MODELED]",
+        "description": "Dust activity proxy, rolling PM2.5 mean, construction season"
+      },
+      "Meteorology": {
+        "share_pct": 39.62,
+        "label": "[MODELED]",
+        "description": "Wind, humidity, temperature, precipitation, boundary-layer height"
+      },
+      "Temporal / Other": {
+        "share_pct": 25.560000000000002,
+        "label": "[MODELED]",
+        "description": "Hour of day, day of week, seasonality, station location"
+      }
+    },
+    "top_features": [
+      {
+        "feature": "boundary_layer_height",
+        "mean_abs_shap": 28.8101,
+        "group": "weather"
+      },
+      {
+        "feature": "pm25_lag_1",
+        "mean_abs_shap": 24.9036,
+        "group": "traffic"
+      },
+      {
+        "feature": "pm25_rolling_mean_24",
+        "mean_abs_shap": 10.0881,
+        "group": "weather"
+      },
+      {
+        "feature": "hour_cos",
+        "mean_abs_shap": 8.4615,
+        "group": "temporal"
+      },
+      {
+        "feature": "traffic_activity_proxy",
+        "mean_abs_shap": 7.4396,
+        "group": "traffic"
+      },
+      {
+        "feature": "wind_speed",
+        "mean_abs_shap": 5.9838,
+        "group": "weather"
+      },
+      {
+        "feature": "is_monsoon",
+        "mean_abs_shap": 5.2674,
+        "group": "temporal"
+      },
+      {
+        "feature": "lat",
+        "mean_abs_shap": 4.5418,
+        "group": "spatial"
+      },
+      {
+        "feature": "hour_sin",
+        "mean_abs_shap": 4.3626,
+        "group": "temporal"
+      },
+      {
+        "feature": "month",
+        "mean_abs_shap": 4.0287,
+        "group": "temporal"
+      }
+    ],
+    "computed_at": "2026-09-27T00:39:57.451213"
+  }
+}

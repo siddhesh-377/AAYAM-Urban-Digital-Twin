@@ -1,0 +1,117 @@
+{
+  "source_name": "MPCB Pune Emission Inventory and Source Apportionment",
+  "source_url": "https://mpcb.gov.in/",
+  "secondary_source": "CPCB National Source Apportionment for PM2.5",
+  "secondary_url": "https://cpcb.nic.in/",
+  "publication_date": "2019",
+  "extraction_date": "2026-09-27",
+  "data_type": "REFERENCE",
+  "geographic_coverage": "Pune Municipal Corporation area, Maharashtra, India",
+  "license": "Government of Maharashtra Open Data",
+  "description": "Source apportionment results for PM2.5 in Pune derived from receptor modelling (CMB/PMF). These figures represent published reference estimates, NOT direct measurements and NOT ground truth for our ML model. They are used only to contextualise SHAP driver groupings.",
+  "methodology_note": "Receptor model source apportionment. Different studies use different methodologies; results are indicative ranges, not fixed percentages.",
+  "source_categories": {
+    "traffic_transport": {
+      "label": "Traffic & Transport",
+      "estimated_share_percent_min": 25,
+      "estimated_share_percent_max": 40,
+      "representative_value_percent": 32,
+      "notes": "Includes on-road vehicles (2-wheelers, 3-wheelers, 4-wheelers, trucks), vehicle exhaust PM2.5, brake/tyre wear, road dust resuspension from vehicles. Pune has high two-wheeler density.",
+      "subcategories": ["vehicle_exhaust", "road_dust_resuspension", "brake_tyre_wear"]
+    },
+    "industrial": {
+      "label": "Industrial & Manufacturing",
+      "estimated_share_percent_min": 20,
+      "estimated_share_percent_max": 35,
+      "representative_value_percent": 27,
+      "notes": "Pimpri-Chinchwad MIDC industrial area (auto manufacturing, chemicals, foundries). Includes stack emissions and fugitive dust. Major industries: Tata Motors, Bajaj Auto, Bharat Forge.",
+      "subcategories": ["stack_emissions", "fugitive_dust", "industrial_processes"],
+      "key_industrial_zones": [
+        {"name": "Pimpri-Chinchwad MIDC", "lat": 18.6298, "lon": 73.7997},
+        {"name": "Bhosari MIDC", "lat": 18.6432, "lon": 73.8534},
+        {"name": "Ranjangaon MIDC", "lat": 18.7347, "lon": 74.2088},
+        {"name": "Hadapsar Industrial Estate", "lat": 18.5089, "lon": 73.9260}
+      ]
+    },
+    "dust_construction": {
+      "label": "Dust & Construction",
+      "estimated_share_percent_min": 15,
+      "estimated_share_percent_max": 30,
+      "representative_value_percent": 22,
+      "notes": "Open dust (unpaved roads, open land), construction activity (Pune has significant ongoing infrastructure development), agricultural burning in surrounding areas.",
+      "subcategories": ["open_dust", "construction_dust", "agricultural_burning"]
+    },
+    "domestic_biomass": {
+      "label": "Domestic & Biomass",
+      "estimated_share_percent_min": 5,
+      "estimated_share_percent_max": 15,
+      "representative_value_percent": 10,
+      "notes": "Residential cooking (LPG mostly urban, biomass in peri-urban), waste burning. Lower share in central Pune.",
+      "subcategories": ["cooking_biomass", "waste_burning"]
+    },
+    "other_secondary": {
+      "label": "Secondary Formation & Other",
+      "estimated_share_percent_min": 5,
+      "estimated_share_percent_max": 15,
+      "representative_value_percent": 9,
+      "notes": "Secondary aerosol formation (sulphate, nitrate, organic aerosol), regional/long-range transport.",
+      "subcategories": ["secondary_aerosol", "long_range_transport"]
+    }
+  },
+  "monitoring_stations_known": [
+    {
+      "name": "Lohegaon",
+      "type": "CPCB CAAQMS",
+      "lat": 18.5642,
+      "lon": 73.9109,
+      "openaq_id_expected": "IN-CPCB-MH",
+      "notes": "Near airport; relatively cleaner residential area"
+    },
+    {
+      "name": "Katraj",
+      "type": "CPCB CAAQMS",
+      "lat": 18.4509,
+      "lon": 73.8662,
+      "openaq_id_expected": "IN-CPCB-MH",
+      "notes": "Dense traffic area; typically higher PM2.5"
+    },
+    {
+      "name": "Pashan",
+      "type": "CPCB CAAQMS",
+      "lat": 18.5342,
+      "lon": 73.8027,
+      "openaq_id_expected": "IN-CPCB-MH",
+      "notes": "Residential/research area; moderate levels"
+    },
+    {
+      "name": "Hadapsar",
+      "type": "CPCB/MPCB",
+      "lat": 18.5089,
+      "lon": 73.9260,
+      "openaq_id_expected": "IN-MPCB",
+      "notes": "Industrial-residential interface; variable PM2.5"
+    },
+    {
+      "name": "Shivajinagar",
+      "type": "MPCB",
+      "lat": 18.5308,
+      "lon": 73.8497,
+      "openaq_id_expected": "IN-MPCB",
+      "notes": "Central commercial area"
+    }
+  ],
+  "annual_mean_pm25_reference": {
+    "value_ug_m3": 52,
+    "year": 2022,
+    "source": "CPCB Annual Report",
+    "naaqs_standard_ug_m3": 40,
+    "who_guideline_ug_m3": 5,
+    "note": "Annual mean from available CPCB stations; actual values vary by station and year"
+  },
+  "seasonal_pattern": {
+    "winter_oct_feb": "highest — stable atmosphere, low boundary layer, reduced ventilation",
+    "summer_mar_may": "moderate — dust resuspension high, but better ventilation",
+    "monsoon_jun_sep": "lowest — wet deposition, rain washout",
+    "post_monsoon_sep_oct": "rising — transition period"
+  }
+}

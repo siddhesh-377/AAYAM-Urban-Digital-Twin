@@ -1,0 +1,245 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+
+@import "tailwindcss";
+@import "leaflet/dist/leaflet.css";
+@import "maplibre-gl/dist/maplibre-gl.css";
+
+:root {
+  --font-inter: 'Inter', system-ui, sans-serif;
+  --font-mono: 'JetBrains Mono', 'Fira Code', monospace;
+
+  /* ── Environmental Intelligence Color System ─────────────── */
+  /* Deep navy/slate backgrounds */
+  --bg-base:    #070c14;
+  --bg-surface: #0d1629;
+  --bg-card:    #111c35;
+  --bg-elevated:#162040;
+
+  /* Borders */
+  --border-subtle: rgba(99, 132, 199, 0.12);
+  --border-accent: rgba(99, 132, 199, 0.28);
+
+  /* Text */
+  --text-primary:   #e8edf5;
+  --text-secondary: #8fa3c8;
+  --text-muted:     #4a6080;
+
+  /* Accent — clean teal/cyan for environmental data */
+  --accent-primary: #38bdf8;  /* sky-400 */
+  --accent-glow:    #0ea5e9;  /* sky-500 */
+
+  /* Status colors */
+  --status-observed:        #10b981;   /* emerald — real ground sensor observation */
+  --status-derived:         #06b6d4;   /* cyan — spatial interpolation / geo-statistical surface */
+  --status-forecast:        #0284c7;   /* sky blue — temporal ML prediction */
+  --status-modeled:         #3b82f6;   /* blue — general ML model output */
+  --status-modeled-estimate:#6366f1;   /* indigo — source attribution / SHAP contribution */
+  --status-scenario:        #8b5cf6;   /* violet — hypothetical intervention scenario */
+  --status-reference:       #f97316;   /* orange — published regulatory inventory (MPCB/CPCB) */
+  --status-proxy:           #f59e0b;   /* amber — constructed proxy (traffic, dust, etc.) */
+  --status-synthetic:       #64748b;   /* slate — demo / benchmark replay dataset */
+  --status-demo:            #64748b;   /* slate — demo data */
+  --status-unavailable:     #475569;   /* dark slate — missing or unvalidated */
+
+  /* AQI band colors (standard Indian NAAQS / CPCB breakpoint colors) */
+  --aqi-good:      #22c55e;
+  --aqi-moderate:  #eab308;
+  --aqi-sensitive: #f97316;
+  --aqi-unhealthy: #ef4444;
+  --aqi-very-bad:  #a855f7;
+  --aqi-hazardous: #991b1b;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-family: var(--font-inter);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  background-color: var(--bg-base);
+  color: var(--text-primary);
+  min-height: 100vh;
+}
+
+/* ── Typography ─────────────────────────────────────────── */
+.font-mono { font-family: var(--font-mono); }
+
+/* ── Status Badge System (Data Honesty) ─────────────────── */
+.badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.35rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 0.25rem;
+  font-size: 0.7rem;
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+.badge-observed {
+  background: rgba(16, 185, 129, 0.12);
+  color: var(--status-observed);
+  border: 1px solid rgba(16, 185, 129, 0.28);
+}
+.badge-derived {
+  background: rgba(6, 182, 212, 0.12);
+  color: var(--status-derived);
+  border: 1px solid rgba(6, 182, 212, 0.28);
+}
+.badge-forecast {
+  background: rgba(2, 132, 199, 0.14);
+  color: #38bdf8;
+  border: 1px solid rgba(2, 132, 199, 0.32);
+}
+.badge-modeled {
+  background: rgba(59, 130, 246, 0.12);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.28);
+}
+.badge-modeled-estimate {
+  background: rgba(99, 102, 241, 0.14);
+  color: #818cf8;
+  border: 1px solid rgba(99, 102, 241, 0.3);
+}
+.badge-scenario {
+  background: rgba(139, 92, 246, 0.14);
+  color: #a78bfa;
+  border: 1px solid rgba(139, 92, 246, 0.3);
+}
+.badge-reference {
+  background: rgba(249, 115, 22, 0.12);
+  color: var(--status-reference);
+  border: 1px solid rgba(249, 115, 22, 0.28);
+}
+.badge-proxy {
+  background: rgba(245, 158, 11, 0.12);
+  color: var(--status-proxy);
+  border: 1px solid rgba(245, 158, 11, 0.28);
+}
+.badge-synthetic,
+.badge-demo {
+  background: rgba(100, 116, 139, 0.15);
+  color: #cbd5e1;
+  border: 1px solid rgba(148, 163, 184, 0.25);
+}
+.badge-unavailable {
+  background: rgba(71, 85, 105, 0.15);
+  color: #94a3b8;
+  border: 1px solid rgba(71, 85, 105, 0.3);
+}
+
+/* ── Card ────────────────────────────────────────────────── */
+.card {
+  background: var(--bg-card);
+  border: 1px solid var(--border-subtle);
+  border-radius: 8px;
+}
+.card-elevated {
+  background: var(--bg-elevated);
+  border: 1px solid var(--border-accent);
+  border-radius: 8px;
+}
+
+/* ── Metric Display ──────────────────────────────────────── */
+.metric-value {
+  font-size: 1.875rem;
+  line-height: 2.25rem;
+  font-weight: 600;
+  letter-spacing: -0.025em;
+  font-variant-numeric: tabular-nums;
+}
+.metric-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--text-muted);
+}
+
+/* ── Panel border ─────────────────────────────────────────── */
+.panel-border-left-observed { border-left: 3px solid var(--status-observed); }
+.panel-border-left-modeled  { border-left: 3px solid var(--status-modeled);  }
+.panel-border-left-scenario { border-left: 3px solid var(--status-scenario); }
+
+/* ── AQI background blobs ─────────────────────────────────── */
+.pm25-good      { color: var(--aqi-good); }
+.pm25-moderate  { color: var(--aqi-moderate); }
+.pm25-sensitive { color: var(--aqi-sensitive); }
+.pm25-unhealthy { color: var(--aqi-unhealthy); }
+.pm25-very-bad  { color: var(--aqi-very-bad); }
+.pm25-hazardous { color: var(--aqi-hazardous); }
+
+/* ── Scrollbar ────────────────────────────────────────────── */
+::-webkit-scrollbar { width: 4px; height: 4px; }
+::-webkit-scrollbar-track { background: var(--bg-base); }
+::-webkit-scrollbar-thumb { background: #1e3a5f; border-radius: 2px; }
+
+/* ── Animations ───────────────────────────────────────────── */
+@keyframes pulse-ring {
+  0%   { transform: scale(1);   opacity: 1; }
+  100% { transform: scale(2.5); opacity: 0; }
+}
+.pulse-ring::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  border-radius: 50%;
+  animation: pulse-ring 2s ease-out infinite;
+}
+
+@keyframes fade-in {
+  from { opacity: 0; transform: translateY(4px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in { animation: fade-in 0.3s ease-out; }
+
+@keyframes slide-in-right {
+  from { opacity: 0; transform: translateX(12px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+.animate-slide-right { animation: slide-in-right 0.25s ease-out; }
+
+/* ── Contribution bar ─────────────────────────────────────── */
+.contribution-bar {
+  height: 0.375rem;
+  border-radius: 9999px;
+  transition: all 700ms cubic-bezier(0, 0, 0.2, 1);
+}
+
+/* ── Scenario delta indicator ─────────────────────────────── */
+.delta-negative { color: var(--aqi-good); }
+.delta-positive { color: var(--aqi-unhealthy); }
+
+/* ── Navigation ───────────────────────────────────────────── */
+.nav-item {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 0.75rem;
+  border-radius: 0.25rem;
+  font-size: 0.875rem;
+  font-weight: 500;
+  transition: all 150ms cubic-bezier(0.4, 0, 0.2, 1);
+  color: var(--text-secondary);
+}
+.nav-item:hover {
+  background: rgba(99, 132, 199, 0.08);
+  color: var(--text-primary);
+}
+.nav-item.active {
+  background: rgba(56, 189, 248, 0.12);
+  color: var(--accent-primary);
+  border-left: 2px solid var(--accent-primary);
+}
+
+/* ── Map container ────────────────────────────────────────── */
+.map-container {
+  position: relative;
+  overflow: hidden;
+  border-radius: 8px;
+  border: 1px solid var(--border-subtle);
+}

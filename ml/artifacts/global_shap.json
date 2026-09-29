@@ -1,0 +1,116 @@
+{
+  "computed_at": "2026-09-27T00:39:49.903100",
+  "n_samples": 2000,
+  "data_status": "MODELED",
+  "label": "Model-estimated global driver contributions",
+  "group_shares_pct": {
+    "Traffic & Transport": 28.18,
+    "Industrial": 2.98,
+    "Dust & Construction": 3.35,
+    "Meteorology": 38.97,
+    "Temporal / Other": 26.53
+  },
+  "top_20_features": [
+    {
+      "feature": "boundary_layer_height",
+      "mean_abs_shap": 26.085,
+      "group": "weather"
+    },
+    {
+      "feature": "pm25_lag_1",
+      "mean_abs_shap": 20.7307,
+      "group": "traffic"
+    },
+    {
+      "feature": "hour_cos",
+      "mean_abs_shap": 8.225,
+      "group": "temporal"
+    },
+    {
+      "feature": "traffic_activity_proxy",
+      "mean_abs_shap": 6.4568,
+      "group": "traffic"
+    },
+    {
+      "feature": "pm25_rolling_mean_24",
+      "mean_abs_shap": 6.2466,
+      "group": "weather"
+    },
+    {
+      "feature": "is_monsoon",
+      "mean_abs_shap": 5.4532,
+      "group": "temporal"
+    },
+    {
+      "feature": "wind_speed",
+      "mean_abs_shap": 4.4895,
+      "group": "weather"
+    },
+    {
+      "feature": "lat",
+      "mean_abs_shap": 3.8963,
+      "group": "spatial"
+    },
+    {
+      "feature": "hour_sin",
+      "mean_abs_shap": 3.4008,
+      "group": "temporal"
+    },
+    {
+      "feature": "road_density_proxy",
+      "mean_abs_shap": 2.9932,
+      "group": "traffic"
+    },
+    {
+      "feature": "month",
+      "mean_abs_shap": 2.8423,
+      "group": "temporal"
+    },
+    {
+      "feature": "pm25_lag_24",
+      "mean_abs_shap": 2.2263,
+      "group": "weather"
+    },
+    {
+      "feature": "construction_season",
+      "mean_abs_shap": 2.1676,
+      "group": "dust"
+    },
+    {
+      "feature": "month_cos",
+      "mean_abs_shap": 1.9171,
+      "group": "temporal"
+    },
+    {
+      "feature": "humidity",
+      "mean_abs_shap": 1.7473,
+      "group": "weather"
+    },
+    {
+      "feature": "hour",
+      "mean_abs_shap": 1.6325,
+      "group": "temporal"
+    },
+    {
+      "feature": "pm25_lag_12",
+      "mean_abs_shap": 1.354,
+      "group": "industrial"
+    },
+    {
+      "feature": "month_sin",
+      "mean_abs_shap": 1.2996,
+      "group": "temporal"
+    },
+    {
+      "feature": "wind_sin",
+      "mean_abs_shap": 1.2473,
+      "group": "weather"
+    },
+    {
+      "feature": "pm25_lag_2",
+      "mean_abs_shap": 0.978,
+      "group": "traffic"
+    }
+  ],
+  "assumption_text": "Feature influence is estimated using SHAP (SHapley Additive exPlanations) applied to the XGBoost model. This represents statistical feature contribution under the training data distribution, NOT physical emission source apportionment. Refer to the MPCB reference data for published source apportionment estimates."
+}

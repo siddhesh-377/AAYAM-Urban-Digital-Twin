@@ -1,0 +1,167 @@
+{
+  "model_version": "XGBoost-v1.0",
+  "training_timestamp": "2026-09-27T20:40:59.817200",
+  "temporal_split": {
+    "train_start": "2022-01-01 00:00:00",
+    "train_end": "2023-05-26 23:00:00",
+    "val_start": "2023-05-26 23:00:00",
+    "val_end": "2023-09-13 09:00:00",
+    "test_start": "2023-09-13 10:00:00",
+    "test_end": "2023-12-31 23:00:00"
+  },
+  "features": {
+    "model_c": [
+      "temperature",
+      "humidity",
+      "wind_speed",
+      "wind_direction",
+      "pressure",
+      "precipitation",
+      "traffic_index",
+      "industrial_activity_index",
+      "hour",
+      "day_of_week",
+      "month",
+      "is_weekend",
+      "pm25_lag_1h",
+      "pm25_lag_3h",
+      "pm25_lag_6h",
+      "pm25_lag_24h"
+    ],
+    "count": 16
+  },
+  "metrics": {
+    "baseline_linear_regression": {
+      "val": {
+        "mae": 13.32,
+        "rmse": 17.6,
+        "r2": 0.5958,
+        "mape_pct": 34.38,
+        "bias": 2.08,
+        "n_samples": 12486,
+        "mean_actual": 47.79
+      },
+      "test": {
+        "mae": 24.4,
+        "rmse": 34.45,
+        "r2": 0.7427,
+        "mape_pct": 35.52,
+        "bias": 0.96,
+        "n_samples": 12486,
+        "mean_actual": 97.23
+      }
+    },
+    "xgboost_main": {
+      "val": {
+        "mae": 8.16,
+        "rmse": 11.62,
+        "r2": 0.8239,
+        "mape_pct": 19.13,
+        "bias": 0.31,
+        "n_samples": 12486,
+        "mean_actual": 47.79
+      },
+      "test": {
+        "mae": 15.83,
+        "rmse": 23.99,
+        "r2": 0.8752,
+        "mape_pct": 18.09,
+        "bias": 0.36,
+        "n_samples": 12486,
+        "mean_actual": 97.23
+      }
+    },
+    "baseline_persistence": {
+      "val": {
+        "mae": 17.32,
+        "rmse": 23.76,
+        "r2": 0.52,
+        "mape_pct": 27.5
+      },
+      "test": {
+        "mae": 31.72,
+        "rmse": 46.51,
+        "r2": 0.51,
+        "mape_pct": 32.8
+      }
+    },
+    "baseline_rolling_6h": {
+      "val": {
+        "mae": 15.2,
+        "rmse": 20.4,
+        "r2": 0.65,
+        "mape_pct": 24.1
+      },
+      "test": {
+        "mae": 28.45,
+        "rmse": 40.12,
+        "r2": 0.612,
+        "mape_pct": 29.5
+      }
+    },
+    "model_a": {
+      "val": {
+        "mae": 13.32,
+        "rmse": 17.6,
+        "r2": 0.5958,
+        "mape_pct": 34.38,
+        "bias": 2.08,
+        "n_samples": 12486,
+        "mean_actual": 47.79
+      },
+      "test": {
+        "mae": 24.4,
+        "rmse": 34.45,
+        "r2": 0.7427,
+        "mape_pct": 35.52,
+        "bias": 0.96,
+        "n_samples": 12486,
+        "mean_actual": 97.23
+      }
+    },
+    "model_b": {
+      "val": {
+        "mae": 10.85,
+        "rmse": 14.9,
+        "r2": 0.735,
+        "mape_pct": 23.4,
+        "bias": 0.52,
+        "n_samples": 12486,
+        "mean_actual": 47.79
+      },
+      "test": {
+        "mae": 19.82,
+        "rmse": 28.74,
+        "r2": 0.814,
+        "mape_pct": 22.4,
+        "bias": 0.48,
+        "n_samples": 12486,
+        "mean_actual": 97.23
+      }
+    },
+    "model_c": {
+      "val": {
+        "mae": 8.16,
+        "rmse": 11.62,
+        "r2": 0.8239,
+        "mape_pct": 19.13,
+        "bias": 0.31,
+        "n_samples": 12486,
+        "mean_actual": 47.79
+      },
+      "test": {
+        "mae": 15.83,
+        "rmse": 23.99,
+        "r2": 0.8752,
+        "mape_pct": 18.09,
+        "bias": 0.36,
+        "n_samples": 12486,
+        "mean_actual": 97.23
+      }
+    }
+  },
+  "improvement_over_baseline": {
+    "mae_reduction_pct": 35.12,
+    "rmse_reduction_pct": 30.36
+  }
+}

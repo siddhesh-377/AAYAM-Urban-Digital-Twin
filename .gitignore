@@ -1,0 +1,56 @@
+# Secrets
+.env
+*.env.local
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.egg-info/
+dist/
+build/
+.venv/
+venv/
+env/
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+*.coverage
+htmlcov/
+
+# ML artifacts (exclude heavy temporary logs, keep production model weights)
+ml/artifacts/*.pkl
+!backend/ml/models/aeris_xgboost_pm25.json
+!backend/ml/models/ayam_xgboost_pm25.json
+!backend/ml/models/training_report.json
+!ml/artifacts/model_c_xgb.json
+!ml/artifacts/training_report.json
+
+
+# Node / Frontend
+node_modules/
+.next/
+out/
+.vercel/
+*.tsbuildinfo
+
+# Data (raw data may be large — keep reference and processed small files)
+data/raw/openaq/*.parquet
+data/raw/weather/*.parquet
+data/raw/traffic/*.parquet
+
+# Database
+*.db
+*.sqlite
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp

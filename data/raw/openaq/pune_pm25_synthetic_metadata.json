@@ -1,0 +1,97 @@
+{
+  "data_status": "SYNTHETIC",
+  "generated_at": "2026-09-26T18:52:29.922230Z",
+  "generator_script": "ml/generate_demo_data.py",
+  "seed": 42,
+  "date_range": {
+    "start": "2022-01-01T00:00:00",
+    "end": "2023-12-31T23:00:00"
+  },
+  "n_records": 83238,
+  "n_stations": 5,
+  "stations": [
+    {
+      "id": "DEMO-LOHEGAON",
+      "name": "Lohegaon",
+      "lat": 18.5642,
+      "lon": 73.9109,
+      "type": "CPCB CAAQMS",
+      "bias": 0.85
+    },
+    {
+      "id": "DEMO-KATRAJ",
+      "name": "Katraj",
+      "lat": 18.4509,
+      "lon": 73.8662,
+      "type": "CPCB CAAQMS",
+      "bias": 1.25
+    },
+    {
+      "id": "DEMO-PASHAN",
+      "name": "Pashan",
+      "lat": 18.5342,
+      "lon": 73.8027,
+      "type": "CPCB CAAQMS",
+      "bias": 0.95
+    },
+    {
+      "id": "DEMO-HADAPSAR",
+      "name": "Hadapsar",
+      "lat": 18.5089,
+      "lon": 73.926,
+      "type": "MPCB",
+      "bias": 1.15
+    },
+    {
+      "id": "DEMO-SHIVAJINAGAR",
+      "name": "Shivajinagar",
+      "lat": 18.5308,
+      "lon": 73.8497,
+      "type": "MPCB",
+      "bias": 1.05
+    }
+  ],
+  "columns": [
+    "station_id",
+    "station_name",
+    "lat",
+    "lon",
+    "station_type",
+    "timestamp",
+    "hour",
+    "day_of_week",
+    "month",
+    "year",
+    "is_weekend",
+    "pm25",
+    "temperature",
+    "humidity",
+    "wind_speed",
+    "wind_direction",
+    "precipitation",
+    "pressure",
+    "boundary_layer_height",
+    "traffic_activity_proxy",
+    "industrial_activity_proxy",
+    "dust_activity_proxy",
+    "data_status",
+    "source"
+  ],
+  "pm25_stats": {
+    "count": 83238.0,
+    "mean": 84.36,
+    "std": 63.54,
+    "min": 5.0,
+    "25%": 31.2,
+    "50%": 66.0,
+    "75%": 124.9,
+    "max": 500.0
+  },
+  "WARNING": "All values in this file are SYNTHETIC. They are generated to mimic the statistical properties of Pune PM2.5 based on published CPCB/MPCB reference data. They are NOT real measurements.",
+  "construction_basis": [
+    "MPCB Pune Source Apportionment Study 2019",
+    "CPCB Annual Report on Air Quality in India 2022",
+    "IMD Pune Climate Normals",
+    "Published diurnal PM2.5 profiles for Indian cities"
+  ]
+}
